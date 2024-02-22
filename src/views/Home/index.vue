@@ -24,12 +24,19 @@
 
 <script setup>
 // Library Imports
-import { computed } from "vue";
+import { computed, onMounted } from "vue";
 import InputText from "primevue/inputtext";
 // Custom Imports
 import store from "../../redux/store";
+import axiosClient from "../../axiosClient";
 
 const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+
+onMounted(async () => {
+  const response = await axiosClient.get("/list.php?i=list");
+
+  console.log("response", response?.data?.meals);
+});
 </script>
 
 <script>
