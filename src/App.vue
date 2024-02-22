@@ -1,5 +1,12 @@
 <template>
-  <router-view />
+  <div>
+    <Header />
+    <main>
+      <router-view />
+    </main>
+  </div>
 </template>
 
-<script setup></script>
+<script setup>
+import Header from "./components/Header/index.vue";
+</script>
