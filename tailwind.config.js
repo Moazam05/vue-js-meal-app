@@ -41,6 +41,9 @@ export default {
         card: "1px 1px 8px 0px #DBD5E2CC",
       },
     },
+    screens: {
+      sm: { max: "576px" },
+    },
   },
   plugins: [],
 };

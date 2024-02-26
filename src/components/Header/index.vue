@@ -1,7 +1,7 @@
 <template>
   <div class="bg-green">
-    <div class="container">
-      <div class="py-3 flex justify-between items-center">
+    <div class="container rm-container">
+      <div class="py-3 flex justify-between items-center sm:px-3">
         <router-link :to="{ name: 'Home' }">
           <div class="cursor-pointer" @click="navigateTo('/')">
             <i class="bx bx-bowl-rice text-2xl text-white"></i>
