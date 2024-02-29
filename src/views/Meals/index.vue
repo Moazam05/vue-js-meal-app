@@ -18,7 +18,7 @@
           :key="meal.idMeal"
           class="bg-white shadow-lg rounded-md"
         >
-          <router-link to="/">
+          <router-link :to="`/meal/${meal.idMeal}`">
             <img
               :src="meal.strMealThumb"
               :alt="meal.strMeal"
@@ -29,13 +29,13 @@
             <h3 class="font-semibold">{{ meal.strMeal }}</h3>
             <p class="mt-2">{{ meal.strInstructions.slice(0, 100) }}...</p>
 
-            <div class="flex justify-between items-center my-3">
-              <div
-                class="py-2 px-3 rounded-md bg-[#eb0014] text-white w-fit text-sm"
-              >
-                <a :href="meal.strYoutube" target="_blank">YouTube</a>
-              </div>
-            </div>
+            <a
+              :href="meal.strYoutube"
+              target="_blank"
+              class="block w-fit h-fit bg-transparent rounded-md border border-[#eb0014] p-2 text-[#eb0014] hover:bg-[#eb0014] hover:text-white text-sm text-center my-3"
+            >
+              Watch on YouTube
+            </a>
           </div>
         </div>
       </div>
