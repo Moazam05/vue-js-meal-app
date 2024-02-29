@@ -45,14 +45,19 @@
         <!-- Hamburger Menu Button -->
         <div class="flex items-center">
           <button @click="toggleMobileMenu" class="text-white">
-            <i class="bx bx-menu text-2xl"></i>
+            <i
+              :class="{
+                'bx bx-x text-2xl': isMobileMenuOpen,
+                'bx bx-menu text-2xl': !isMobileMenuOpen,
+              }"
+            ></i>
           </button>
         </div>
       </div>
     </div>
 
     <!-- Mobile Menu -->
-    <div v-if="isMobileMenuOpen">
+    <div v-if="isMobileMenuOpen" class="bg-green">
       <div class="container rm-container">
         <div class="flex flex-col items-center">
           <div class="flex items-center cursor-pointer my-2">
