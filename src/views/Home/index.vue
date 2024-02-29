@@ -1,15 +1,5 @@
 <template>
-  <div class="flex flex-col p-8">
-    <div class="flex justify-center gap-2 mt-2">
-      <div
-        v-for="letter in letters"
-        :key="letter"
-        class="text-2xl font-bold text-green"
-      >
-        <router-link :to="`/meals/${letter}`">{{ letter }}</router-link>
-      </div>
-    </div>
-  </div>
+  <div class="flex flex-col p-8"></div>
 </template>
 
 <script setup>
@@ -18,8 +8,6 @@ import { computed, onMounted } from "vue";
 // Custom Imports
 import store from "../../redux/store";
 import axiosClient from "../../axiosClient";
-
-const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
 onMounted(async () => {
   const response = await axiosClient.get("/list.php?i=list");
