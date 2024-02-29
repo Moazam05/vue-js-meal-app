@@ -23,7 +23,7 @@
             </router-link>
           </div>
           <div class="flex items-center cursor-pointer">
-            <router-link :to="{}">
+            <router-link :to="'/meals/by-ingredient'">
               <div class="mx-2 text-white font-medium text-16px p-2">
                 Meals By Ingredients
               </div>
