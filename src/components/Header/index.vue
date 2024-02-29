@@ -106,9 +106,11 @@
 </template>
 
 <script setup>
-import { ref } from "vue";
+import { ref, watch } from "vue";
+import { useRouter } from "vue-router";
 
 const isMobileMenuOpen = ref(false);
+const router = useRouter();
 
 function toggleMobileMenu() {
   isMobileMenuOpen.value = !isMobileMenuOpen.value;
@@ -121,6 +123,12 @@ function scrollTo(id) {
 function navigateTo(path) {
   // Add your navigation logic here
 }
+
+watch(router.currentRoute, () => {
+  if (isMobileMenuOpen.value) {
+    toggleMobileMenu();
+  }
+});
 </script>
 
 <script>

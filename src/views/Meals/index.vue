@@ -17,7 +17,7 @@
           'grid-cols-1': meals === null,
           'grid-cols-3': meals !== null,
         }"
-        class="grid gap-6 py-6"
+        class="grid gap-6 py-6 sm:grid-cols-1"
       >
         <template v-if="meals === null">
           <div class="flex justify-center">

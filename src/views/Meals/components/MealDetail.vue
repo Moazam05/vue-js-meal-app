@@ -1,7 +1,7 @@
 <template>
   <div class="container rm-container">
     <div class="p-6">
-      <div class="grid grid-cols-1 sm:grid-cols-1 gap-6 py-6">
+      <div class="grid grid-cols-1 sm:grid-cols-1 gap-6 py-6 sm:py-0">
         <div class="bg-white shadow-lg rounded-md">
           <img
             :src="meal.strMealThumb"
@@ -64,7 +64,7 @@
                   </ul>
                 </div>
 
-                <div class="flex w-full gap-4 sm:mb-4">
+                <div class="flex w-full gap-4 sm:mb-4 sm:flex-col">
                   <a
                     :href="meal.strYoutube"
                     target="_blank"

@@ -1,7 +1,7 @@
 <template>
   <div class="container rm-container">
     <div class="p-6">
-      <div class="grid grid-cols-5 sm:grid-cols-1 gap-6 py-6">
+      <div class="grid grid-cols-5 sm:grid-cols-1 gap-6 py-6 sm:py-0">
         <div
           v-for="(ingredient, index) in ingredients.slice(0, 30)"
           :key="ingredient.strIngredient"
