@@ -18,18 +18,21 @@
           :key="meal.idMeal"
           class="bg-white shadow-lg rounded-md"
         >
-          <img
-            :src="meal.strMealThumb"
-            :alt="meal.strMeal"
-            class="rounded-t-md h-64 w-full object-cover"
-          />
+          <router-link to="/">
+            <img
+              :src="meal.strMealThumb"
+              :alt="meal.strMeal"
+              class="rounded-t-md h-64 w-full object-cover cursor-pointer"
+            />
+          </router-link>
           <div class="p-2">
             <h3 class="font-semibold">{{ meal.strMeal }}</h3>
+            <p class="mt-2">{{ meal.strInstructions.slice(0, 100) }}...</p>
+
             <div class="flex justify-between items-center my-3">
-              <div class="bg-green text-white p-2 rounded-md text-sm">
-                <router-link to="/">View</router-link>
-              </div>
-              <div class="p-2 rounded-md bg-[#fc0102] text-white w-fit text-sm">
+              <div
+                class="py-2 px-3 rounded-md bg-[#eb0014] text-white w-fit text-sm"
+              >
                 <a :href="meal.strYoutube" target="_blank">YouTube</a>
               </div>
             </div>
@@ -42,19 +45,26 @@
 
 <script setup>
 import InputText from "primevue/inputtext";
-import { computed, ref } from "vue";
+import { computed, onMounted, ref } from "vue";
 
 // Custom
 import store from "../../redux/store";
+import { useRouter } from "vue-router";
 
 const keyword = ref("");
 const meals = computed(() => store.state.searchedMeals);
-
-console.log("meals", meals);
+const route = useRouter();
 
 function searchMeals() {
   store.dispatch("searchMeals", keyword.value);
 }
+
+onMounted(() => {
+  keyword.value = route.currentRoute._value.path.split("/")[3];
+  if (keyword.value) {
+    searchMeals();
+  }
+});
 </script>
 
 <script>
