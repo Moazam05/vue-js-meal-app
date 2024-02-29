@@ -69,14 +69,16 @@ import { computed, onMounted, ref } from "vue";
 import store from "../../redux/store";
 import { useRouter } from "vue-router";
 
+const route = useRouter();
 const keyword = ref("");
 const meals = computed(() => store.state.searchedMeals);
-const route = useRouter();
-
-console.log("meals", meals);
 
 function searchMeals() {
-  store.dispatch("searchMeals", keyword.value);
+  if (keyword.value) {
+    store.dispatch("searchMeals", keyword.value);
+  } else {
+    store.commit("setSearchedMeals", []);
+  }
 }
 
 onMounted(() => {
